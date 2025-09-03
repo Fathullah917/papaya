@@ -1,183 +1,270 @@
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
     <title>Papaya Coffee - KKN Dames Damai</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
+        /* Palet Warna Papaya Coffee */
+        :root {
+            --main-brown: #3B241C;
+            --leaf-green: #4CAF50;
+            --papaya-orange: #FF8C00;
+            --cream-bg: #FBF9F6;
+            --text-dark: #2C2C2C;
+            --white: #fff;
+        }
+
+        /* ------------------------ */
+        /* GENERAL STYLES */
+        /* ------------------------ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
-            /* Mengubah latar belakang menjadi gradasi biru */
-            background: linear-gradient(to right, #e0f2f7, #bbdefb); /* Gradasi biru muda */
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            
+            /* Latar Belakang Baru */
+            background-image: url();
+            background-size: cover;
+            background-attachment: fixed; /* Membuat latar belakang tidak bergerak saat di-scroll */
+            background-blend-mode: multiply; /* Memadukan warna latar belakang dengan gambar */
+            background-color: rgba(251, 249, 246, 0.85); /* Tambahkan lapisan semi-transparan untuk keterbacaan */
         }
 
-        .container {
-            max-width: 960px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
+        .coffee-container {
+            width: 960px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Tambahkan background putih semi-transparan pada kontainer utama */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        header {
-            /* Nilai 0.8 membuat latar belakang jauh lebih gelap */
-            background: linear-gradient(rgba(96, 94, 107, 0.8), rgba(28, 26, 34, 0.8)), url('bb.jpg') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        .header-border {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background-color: #f7f9fc; /* Sesuaikan dengan warna latar belakang section berikutnya */
-            border-top-left-radius: 50% 100%;
-            border-top-right-radius: 50% 100%;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        .slogan {
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        /* Bagian-bagian Konten */
         section {
-            padding: 60px 0;
-        }
-
-        .section-tentang-kami, .section-manfaat, .section-kontak {
-            background: #fff; /* Tetap putih untuk konten utama */
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-produk, .section-testimoni {
-            background: #e3f2fd; /* Biru muda untuk bagian ini */
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 48px;
         }
 
         h2 {
-            text-align: center;
-            color: #2196F3; /* Warna biru untuk judul */
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            margin-bottom: 48px;
+            color: var(--main-brown);
             text-align: center;
         }
 
-        .about-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .coffee-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 80px;
         }
 
-        .product-item {
-            text-align: center;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* ------------------------ */
+        /* COMPONENT STYLES */
+        /* ------------------------ */
+
+        /* HEADER */
+        header {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 80px;
+            margin-top: 48px;
+            margin-bottom: 24px; /* Kurangi margin-bottom untuk ruang garis */
         }
 
-        .product-image {
-            max-width: 80%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .header-text-box {
+            align-self: center;
         }
 
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #4CAF50;
-            margin: 10px 0;
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            color: var(--main-brown);
         }
 
-        .button {
+        .header-description {
+            margin-bottom: 24px;
+        }
+        
+        .btn, .btn-secondary {
             display: inline-block;
-            background: #2196F3; /* Warna biru untuk tombol */
-            color: #fff;
             padding: 12px 25px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            text-align: center;
         }
 
-        .button:hover {
-            background-color: #1976D2; /* Biru lebih gelap saat hover */
+        .btn-primary {
+            background-color: var(--leaf-green);
+            color: var(--white);
+            border-color: var(--leaf-green);
+            margin-right: 10px;
         }
 
-        .manfaat-grid, .testimoni-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+        .btn-primary:hover {
+            background-color: #388E3C;
+            border-color: #388E3C;
+            transform: translateY(-2px);
         }
 
-        .manfaat-item, .testimoni-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--main-brown);
+            border-color: var(--main-brown);
         }
 
-        .manfaat-item ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
+        .btn-secondary:hover {
+            background-color: var(--main-brown);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
-        .manfaat-item li::before {
-            content: '✅ ';
-            color: #4CAF50;
-            margin-right: 8px;
+        .header-buttons {
+            display: flex;
         }
 
+        img {
+            width: 100%;
+        }
+
+        /* Garis Pemisah */
+        .separator {
+            border-top: 3px solid var(--papaya-orange);
+            margin: 48px 0; /* Memberi ruang di atas dan bawah garis */
+        }
+
+        /* FEATURES (Manfaat) */
+        .feature-title {
+            margin-bottom: 16px;
+            color: var(--main-brown);
+            font-size: 1.2rem;
+        }
+
+        .feature-text {
+            color: var(--text-dark);
+        }
+        
         .disclaimer {
-            margin-top: 20px;
             font-style: italic;
             font-size: 0.9em;
             text-align: center;
             color: #666;
+            margin-top: 24px;
         }
 
-        .section-kontak {
+        /* TESTIMONIAL */
+        .testimonial-section {
+            background-color: var(--white);
+            padding: 48px 0;
+        }
+        
+        .testimonial-section .coffee-grid {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .testimonial-box {
+            align-self: center;
+        }
+
+        .testimonial-box h2 {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* BLENDS (Produk) */
+        .blend {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
         }
 
+        .blend-box {
+            padding: 24px;
+            background-color: var(--white);
+        }
+
+        h3 {
+            margin-bottom: 24px;
+        }
+
+        .blend-details {
+            list-style: none;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .blend-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .blend-details li::before {
+            content: '✅';
+            color: var(--leaf-green);
+            font-size: 1.2rem;
+        }
+
+        .blend-details li:last-child {
+            margin-bottom: 0;
+        }
+
+        .blend-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .blend-price strong {
+            font-size: 1.5rem;
+            color: var(--papaya-orange);
+        }
+        .btn--small {
+            padding: 8px 16px;
+            background-color: var(--main-brown);
+            color: var(--white);
+            border-color: var(--main-brown);
+            text-decoration: none;
+        }
+        .btn--small:hover {
+            background-color: var(--text-dark);
+            border-color: var(--text-dark);
+        }
+        
+        /* CONTACT */
         .social-icons a {
-            font-size: 3em; /* Ukuran ikon lebih besar */
+            font-size: 3em;
             margin: 0 15px;
-            color: #2196F3; /* Warna ikon biru */
+            color: var(--main-brown);
             transition: color 0.3s;
         }
 
         .social-icons a:hover {
-            color: #1976D2; /* Warna ikon saat hover */
+            color: var(--text-dark);
         }
         
         .social-icons p {
@@ -185,135 +272,118 @@
             font-weight: 600;
         }
 
-
         footer {
-            background: #2196F3; /* Biru untuk footer */
-            color: #fff;
+            margin-bottom: 48px;
             text-align: center;
-            padding: 20px 0;
-        }
-
-        /* Responsif untuk layar lebih besar */
-        @media (min-width: 768px) {
-            .about-content {
-                flex-direction: row;
-                text-align: left;
-            }
-            .about-image {
-                max-width: 40%; /* Sedikit lebih kecil agar teks lebih dominan */
-            }
-            .manfaat-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .testimoni-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            color: #888;
         }
     </style>
 </head>
 <body>
+    <div class="coffee-container">
+        <header>
+            <div class="header-text-box">
+                <h1>PAPAYA COFFEE</h1>
+                <p class="header-description">
+                    “Saatnya coba rasa baru – Papaya Coffee, inovasi mahasiswa untukmu!”
+                </p>
+                <div class="header-buttons">
+                    <a class="btn btn-primary" href="#produk">Beli Sekarang</a>
+                    <a class="btn btn-secondary" href="https://wa.me/087859548565" target="_blank">Hubungi Kami</a>
+                </div>
+            </div>
+            <img src="kopi.png" alt="kopi biji pepaya" />
+        </header>
 
-    <header>
-        <div class="container">
-            <h1>PAPAYA COFFEE</h1>
-            <p class="slogan">Inovasi Mahasiswa, Kenikmatan Tiada Duanya.</p>
-        </div>
-    </header>
+        <hr class="separator"> <section id="produk">
+            <h2>Produk Kami</h2>
+            <div class="coffee-grid">
+                <figure class="blend">
+                    <img src="kopi.png" alt="Kemasan Kopi Biji Pepaya" width="300" height="250" />
+                    <div class="blend-box">
+                        <h3>Papaya Coffee Original</h3>
+                        <ul class="blend-details">
+                            <li><span>Bebas kafein, aman untuk lambung</span></li>
+                            <li><span>Kaya antioksidan dan nutrisi</span></li>
+                            <li><span>Aroma khas lembut, rasa nutty</span></li>
+                            <li><span>Berat Bersih: 100g</span></li>
+                        </ul>
+                        <div class="blend-price">
+                            <strong>Rp 15.000</strong>
+                            <a href="https://wa.me/087859548565" target="_blank" class="btn btn--small">Beli Sekarang</a>
+                        </div>
+                    </div>
+                </figure>
+                
+                <figure class="blend">
+                    <img src="kopi.png" alt="Kopi Biji Pepaya dan Beras" width="300" height="250" />
+                    <div class="blend-box">
+                        <h3>Papaya Coffee Beras Blend</h3>
+                        <ul class="blend-details">
+                            <li><span>Campuran biji pepaya dan beras</span></li>
+                            <li><span>Tekstur lebih kaya, aroma gurih</span></li>
+                            <li><span>Sumber serat dan energi</span></li>
+                            <li><span>Berat Bersih: 100g</span></li>
+                        </ul>
+                        <div class="blend-price">
+                            <strong>Rp 17.500</strong>
+                            <a href="https://wa.me/087859548565" target="_blank" class="btn btn--small">Beli Sekarang</a>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </section>
 
-    <main>
-        <section id="tentang-kami" class="section-tentang-kami">
-            <div class="container">
-                <h2>Tentang Kami</h2>
+        <section class="testimonial-section">
+            <div class="coffee-grid">
+                <img src="https://images.unsplash.com/photo-1467664631004-58beab1ece0d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Happy customers enjoying coffee" />
+                <div class="testimonial-box">
+                    <h2>"Rasanya enak, seperti kopi beneran tapi lebih ringan di perut."</h2>
+                    <blockquote class="testimonial-text">
+                        "Cocok untuk saya yang sensitif kafein!"
+                    </blockquote>
+                    <p class="testimonial-author">&mdash; Sekdes Dames Damai</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang-kami">
+            <h2>Tentang Kami</h2>
+            <div class="coffee-grid">
                 <div class="about-content">
-                    <img src="gambar-proses-kopi.jpg" alt="Proses pembuatan kopi biji pepaya" class="about-image">
-                    <div>
-                        <p>Papaya Coffee adalah inovasi produk dari mahasiswa KKN Dames Damai. Berawal dari keinginan untuk memanfaatkan limbah biji pepaya yang sering terbuang, kami melihat potensi besar untuk mengubahnya menjadi minuman alternatif yang tidak hanya unik, tetapi juga menyehatkan.</p>
-                        <p>Kopi biji pepaya kami dibuat melalui proses seleksi biji yang ketat, pengeringan alami, sangrai dengan suhu terkontrol untuk menghasilkan aroma dan rasa terbaik, hingga penggilingan halus. Kami berkomitmen untuk menyajikan produk berkualitas tinggi dengan cita rasa otentik yang aman untuk dinikmati siapa saja.</p>
-                    </div>
+                    <p class="feature-title"><strong>Inovasi dari Mahasiswa KKN</strong></p>
+                    <p class="feature-text">
+                        Papaya Coffee adalah inovasi produk dari mahasiswa KKN Dames Damai. Berawal dari keinginan untuk memanfaatkan limbah biji pepaya yang sering terbuang, kami melihat potensi besar untuk mengubahnya menjadi minuman alternatif yang unik dan menyehatkan.
+                    </p>
                 </div>
-            </div>
-        </section>
-        
-        <section id="produk" class="section-produk">
-            <div class="container">
-                <h2>Produk Kami</h2>
-                <div class="product-item">
-                    <img src="gambar-produk-kopi.jpg" alt="Kemasan Kopi Biji Pepaya" class="product-image">
-                    <h3>Papaya Coffee Original</h3>
-                    <p class="product-description">Nikmati sensasi rasa unik dari Papaya Coffee Original. Aroma khas yang lembut berpadu dengan sentuhan rasa nutty, memberikan pengalaman minum kopi yang berbeda. Bebas kafein, aman untuk lambung, dan kaya manfaat kesehatan.</p>
-                    <p class="product-price">Rp 15.000</p>
-                    <p class="product-weight">Berat Bersih: 100gr</p>
-                    <p class="product-serving">Cara Penyajian: Seduh 1-2 sendok teh bubuk kopi dengan 200ml air panas. Tambahkan gula atau krimer sesuai selera.</p>
-                    <a href="https://wa.me/087859548565" target="_blank" class="button">Beli Sekarang</a>
+                <div class="about-content">
+                    <p class="feature-title"><strong>Proses Seleksi Ketat</strong></p>
+                    <p class="feature-text">
+                        Kopi biji pepaya kami dibuat melalui proses seleksi biji yang ketat, pengeringan alami, sangrai dengan suhu terkontrol untuk menghasilkan aroma dan rasa terbaik. Kami berkomitmen untuk menyajikan produk berkualitas tinggi.
+                    </p>
                 </div>
-            </div>
-        </section>
-        
-        <section id="manfaat" class="section-manfaat">
-            <div class="container">
-                <h2>Manfaat & Perhatian</h2>
-                <div class="manfaat-grid">
-                    <div class="manfaat-item">
-                        <h3>Manfaat Papaya Coffee</h3>
-                        <ul>
-                            <li>Kaya Antioksidan untuk melindungi sel tubuh</li>
-                            <li>Bebas Kafein, cocok untuk penderita asam lambung</li>
-                            <li>Membantu Detoksifikasi & Kesehatan Pencernaan</li>
-                            <li>Berpotensi Membantu Menurunkan Kolesterol</li>
-                        </ul>
-                    </div>
-                    <div class="manfaat-item">
-                        <h3>Perhatian (Tidak Dianjurkan Untuk)</h3>
-                        <ul>
-                            <li>Ibu Hamil dan Menyusui (konsultasi dokter)</li>
-                            <li>Orang dengan Gangguan Pencernaan Akut</li>
-                            <li>Pria yang Sedang dalam Program Hamil (konsultasi dokter)</li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="disclaimer">*Konsultasikan dengan ahli kesehatan atau dokter jika Anda memiliki kondisi medis tertentu sebelum mengonsumsi produk ini.</p>
-            </div>
-        </section>
-
-        <section id="testimoni" class="section-testimoni">
-            <div class="container">
-                <h2>Apa Kata Mereka?</h2>
-                <div class="testimoni-grid">
-                    <div class="testimoni-item">
-                        <p>"Rasanya enak, seperti kopi beneran tapi lebih ringan di perut. Cocok untuk saya yang sensitif kafein!"</p>
-                        <p><strong>- Sekdes Dames Damai</strong></p>
-                    </div>
-                    <div class="testimoni-item">
-                        <p>"Produk unik dan menyehatkan. Aroma dan rasanya luar biasa. Pasti akan beli lagi!"</p>
-                        <p><strong>- Ibu Nurlaila (Warga Lokal)</strong></p>
-                    </div>
-                    <div class="testimoni-item">
-                        <p>"Sangat mudah diseduh dan tidak bikin kembung. Produk lokal inovatif yang patut diacungi jempol!"</p>
-                        <p><strong>- Bapak Budi (Pemerhati UMKM)</strong></p>
-                    </div>
+                <div class="about-content">
+                    <p class="feature-title"><strong>Aman untuk Lambung</strong></p>
+                    <p class="feature-text">
+                        Biji pepaya secara alami bebas kafein, menjadikannya pilihan yang sempurna bagi Anda yang ingin menikmati sensasi "kopi" tanpa khawatir akan masalah asam lambung atau jantung berdebar.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="kontak" class="section-kontak">
-            <div class="container">
-                <h2>Hubungi Kami</h2>
-                <p>Terima kasih telah tertarik dengan Papaya Coffee. Kami siap melayani Anda!</p>
-                <div class="social-icons">
-                    <a href="https://wa.me/087859548565" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/_ahmdfthllh_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p>Atau hubungi kami di Kantor Desa Dames Damai</p>
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <p style="text-align: center; margin-bottom: 24px;">Terima kasih telah tertarik dengan Papaya Coffee. Kami siap melayani Anda!</p>
+            <div class="social-icons" style="text-align: center;">
+                <a href="https://wa.me/087859548565" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/_ahmdfthllh_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
+            <p style="text-align: center; margin-top: 20px;">Atau kunjungi kami di Kantor Desa Dames Damai</p>
         </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Papaya Coffee KKN Dames Damai. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
-
+        <footer>
+            Copyright &copy; 2024 by Papaya Coffee KKN Dames Damai. Hak Cipta Dilindungi.
+        </footer>
+    </div>
 </body>
 </html>
-
